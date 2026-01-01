@@ -1,0 +1,86 @@
+# ===========================
+# GLOBAL & OS
+# ===========================
+.DS_Store
+Thumbs.db
+*.pem
+*.log
+
+# ===========================
+# DEPENDENCIES (Node/Bun)
+# ===========================
+# Recursive (matches inside web/, apps/, etc.)
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# ===========================
+# WEB (Next.js & TypeScript)
+# ===========================
+# Matches .next folder anywhere (e.g., web/.next)
+.next/
+out/
+build/
+dist/
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# ===========================
+# API (Python/FastAPI)
+# ===========================
+# Virtual Environments
+.venv/
+venv/
+env/
+# Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ===========================
+# FLUTTER (Plugin/Mobile)
+# ===========================
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+# Generated files
+**/generated/
+**/ios/Flutter/Generated.xcconfig
+**/android/local.properties
+
+# ===========================
+# JAVA / GRADLE (Backend/Android)
+# ===========================
+.gradle/
+*.class
+*.jar
+*.war
+
+# ===========================
+# ENV FILES
+# ===========================
+# Ignore all env files, but allow example files
+.env
+.env*
+!.env.example
+
+# ===========================
+# DEBUG LOGS
+# ===========================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
