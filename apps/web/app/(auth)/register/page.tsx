@@ -61,7 +61,7 @@ export default function RegisterPage() {
             const registerUseCase = new RegisterUser(authRepo);
             const data = await registerUseCase.execute(values.email, values.password, values.fullName);
 
-            localStorage.setItem("token", data.token);
+            localStorage.setItem("token", data.access_token);
             router.push("/dashboard");
         } catch (err: any) {
             setError(err.response?.data?.message || "Something went wrong. Please try again.");
