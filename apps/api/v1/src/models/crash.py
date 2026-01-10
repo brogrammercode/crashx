@@ -27,7 +27,7 @@ class Crash(Base, UUIDModel):
     severity = Column(Enum(Severity), default=Severity.MEDIUM)
     status = Column(Enum(Status), default=Status.OPEN)
     
-    occurred_at = Column(DateTime, nullable=False) # When the crash actually happened on device
+    occurred_at = Column(DateTime(timezone=True), nullable=False) # When the crash actually happened on device
 
     project_id = Column(UUID(as_uuid=True), ForeignKey("projects.id"), nullable=False)
 

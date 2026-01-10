@@ -1,6 +1,6 @@
 from typing import Optional, Dict, Any
 from pydantic import BaseModel
-from datetime import datetime
+from datetime import datetime, timezone
 from uuid import UUID
 from enum import Enum
 
@@ -16,7 +16,7 @@ class CrashCreate(BaseModel):
     device_info: Optional[Dict[str, Any]] = None
     app_version: Optional[str] = None
     severity: Severity = Severity.MEDIUM
-    occurred_at: datetime = datetime.utcnow()
+    occurred_at: datetime = datetime.now(timezone.utc)
 
 class CrashInDB(CrashCreate):
     id: UUID
