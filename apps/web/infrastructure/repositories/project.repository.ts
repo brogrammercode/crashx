@@ -6,7 +6,7 @@ export class ApiProjectRepository implements IProjectRepository {
     async create(name: string, discordWebhookUrl?: string): Promise<Project> {
         const response = await apiClient.post<Project>("/projects", {
             name,
-            discordWebhookUrl,
+            discord_webhook_url: discordWebhookUrl,
         });
         return response.data;
     }

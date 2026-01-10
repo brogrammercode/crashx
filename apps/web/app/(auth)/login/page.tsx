@@ -56,8 +56,8 @@ export default function LoginPage() {
             const authRepo = new ApiAuthRepository();
             const loginUseCase = new LoginUser(authRepo);
             const data = await loginUseCase.execute(values.email, values.password);
-
-            localStorage.setItem("token", data.token);
+            console.log(data);
+            localStorage.setItem("token", data.access_token);
             router.push("/dashboard");
         } catch (err: any) {
             setError(err.response?.data?.message || "Something went wrong. Please try again.");

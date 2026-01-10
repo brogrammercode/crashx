@@ -34,7 +34,7 @@ import { Project } from "@/core/entities/project";
 
 const projectSchema = z.object({
     name: z.string().min(1, "Project name is required"),
-    discordWebhook: z.string().optional(),
+    discordWebhook: z.string().min(1, "Discord webhook is required"),
 });
 
 export default function DashboardPage() {
@@ -62,6 +62,7 @@ export default function DashboardPage() {
             const repo = new ApiProjectRepository();
             const useCase = new GetProjects(repo);
             const data = await useCase.execute();
+            console.log(data);
             setProjects(data);
         } catch (error) {
             console.error("Failed to fetch projects", error);
@@ -172,13 +173,13 @@ export default function DashboardPage() {
                                     </Label>
                                     <div className="flex items-center gap-2">
                                         <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm flex-1 truncate">
-                                            {project.apiKey}
+                                            {project.api_key}
                                         </code>
                                         <Button
                                             variant="ghost"
                                             size="icon"
                                             className="h-8 w-8"
-                                            onClick={() => copyToClipboard(project.apiKey)}
+                                            onClick={() => copyToClipboard(project.api_key)}
                                         >
                                             <Copy className="h-4 w-4" />
                                         </Button>
